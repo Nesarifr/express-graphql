@@ -2,7 +2,7 @@ import { ContenedorDaoProductos } from "../../DB/index.js";
 import logger from "../../logs/logger.js";
 
 
-export const root={
+export const root = {
     getProducts: async () => {
         logger.info("Se pide lista completa de productos");       
         return await ContenedorDaoProductos.getAll();
@@ -22,10 +22,10 @@ export const root={
         );
         return ({
             id: nuevoId,
-            nuevoProducto: producto,
+            ...producto,
         });
     },
-    deleteProductById:async (id) => {
+    deleteProductById:async ({id}) => {
         const productoID = await ContenedorDaoProductos.getById(id);
         if (productoID.length) {
             //getById devuelve null en caso de que no exita el elemento con ID

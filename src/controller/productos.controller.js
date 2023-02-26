@@ -35,7 +35,6 @@ export const getAllProductos =  async (req, res)=>{
             listProducts = await ProductosService.getProductos()
             // const listProducts = JSON.stringify(await ContenedorDaoProductos.getAll())
             // return res.render('home', {productos: JSON.parse(listProducts), user: "Visita"}) para handlebars
-            console.log(listProducts);
             return res.status(200).json(listProducts)
         }
     }

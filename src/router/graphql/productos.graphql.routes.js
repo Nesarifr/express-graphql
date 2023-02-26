@@ -3,7 +3,8 @@ import { productosGraphqlController } from "../../controller/graphql/productos.g
 
 export const routerProductosGraphql = Express.Router();
 
+
 routerProductosGraphql.use(Express.json());
 routerProductosGraphql.use(Express.urlencoded({ extended: true }));
 
-routerProductosGraphql.use('/', productosGraphqlController);
+routerProductosGraphql.use('/', await productosGraphqlController());

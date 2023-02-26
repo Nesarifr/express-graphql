@@ -1,13 +1,13 @@
 import { buildSchema } from "graphql"
 
-const prouctos=
+const productos=
     `type producto {
         _id:String,
         id:Int,
         title: String,
         price: Int,
         thumbnail: String
-    }, 
+    }
     input productoInput {
         title: String,
         price: Int,
@@ -21,7 +21,7 @@ const prouctos=
         nombre: String,
         email: String,
         fotoUrl: String
-    },
+    }
     input userInput {
         nombre: String,
         email: String,
@@ -38,17 +38,21 @@ const prouctos=
         userID: String,
         id:Int,
         productos: [producto]
-    },
+    }
     input carritoInput {
         userID: String,
-        productos: [producto]
+        productos: productoInput
     }`
 
 
 export const graphqlSchema = buildSchema(`
-    ${prouctos},
-    ${users},
-    ${carritos},
+    ${productos}
+    ${users}
+    ${carritos}
+
+    type stringResponse{
+        message: String
+    }
 
     type Query {
         getProducts: [producto],
@@ -58,16 +62,15 @@ export const graphqlSchema = buildSchema(`
         getCarritos: [carrito],
         getCarritoById(id: Int): carrito
     }
-
     type Mutation {
         addProduct(producto: productoInput): producto,
-        deleteProductById(id: Int): String,
-        updateProductById(producto: productoInput, id: Int): producto,
+        deleteProductById(id: Int): stringResponse,
+        updateProductById(producto: productoInput, id: Int): stringResponse,
         addUser(user: userInput): user,
-        deleteUserById(id: Int): String,
-        updateUserById(producto: productoInput, id: Int): user,
+        deleteUserById(id: Int): stringResponse,
+        updateUserById(producto: productoInput, id: Int): stringResponse,
         addCarrito(carrito: carritoInput): carrito,
-        deleteCarritoById(id: Int): String,
-        updateCarritoById(producto: productoInput, id: Int): carrito 
+        deleteCarritoById(id: Int): stringResponse,
+        updateCarritoById(producto: productoInput, id: Int): stringResponse 
     }
 `)

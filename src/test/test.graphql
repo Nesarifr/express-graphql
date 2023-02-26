@@ -1,0 +1,44 @@
+query{
+    getProducts{
+      title,
+      price,
+      thumbnail
+    }
+  }
+  
+  
+  mutation{
+    addProduct(producto:{
+      title: "test1",
+      price: 5000,
+      thumbnail:"www.google.com"
+    }){
+      id,
+      title,
+      price
+    }
+  }
+  
+  mutation{
+    deleteProductById(id: 11
+    ){
+      message
+    }
+  }
+  
+  mutation{
+    updateProductById(
+      producto:{
+        title: "test1",
+      price: 5000,
+      thumbnail:"www.google.com"
+      }
+      id: 9
+    ){
+      message
+    }
+  }
+  
+  
+  
+  

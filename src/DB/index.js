@@ -54,5 +54,4 @@ async function getApiDao(tipoDB) {
 }
 
 let {ContenedorDaoProductos, ContenedorDaoCarritos} = await getApiDao(databaseType)
-console.log(await ContenedorDaoProductos.getAll());
 export {ContenedorDaoProductos, ContenedorDaoCarritos}
