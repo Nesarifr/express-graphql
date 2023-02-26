@@ -19,7 +19,6 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename)
 const PORT = options.server.PORT
 
-
 /* ------------------------------- configuracion del servidor ------------------------------- */
 app.use(express.static(__dirname + '/src/public')) 
 app.use(express.json());
@@ -42,9 +41,7 @@ app.use(passport.session())
 app.use(cors({
     origin:`http://localhost:${PORT}/api`
 }))
-
 app.use("/",apiRouter);
-
 
 /* ---------------------- definicion motor de plantilla --------------------- */
 app.engine('hbs', engine({extname: 'hbs'}))
@@ -52,7 +49,6 @@ app.set('views', path.join(__dirname,'/src/public/views')) //ubicacion de templa
 app.set('view engine', 'hbs') // definitar motor para express
 
 /* -------------------- Se crea el servidor y se enciende ------------------- */
-
 
 app.listen(PORT, ()=> logger.info(`Server listening on port ${PORT}`));
 

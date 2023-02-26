@@ -4,7 +4,7 @@ import logger from "../logs/logger.js";
 
 export const getProductos = async () => {
     try {
-        logger.info("Se pide lista completa de productos");       
+        logger.info("Service - Se pide lista completa de productos");       
         return await ContenedorDaoProductos.getAll();
     } catch (error) {
         let msgError =

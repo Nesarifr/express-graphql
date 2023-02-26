@@ -31,7 +31,7 @@ export const getAllProductos =  async (req, res)=>{
             return res.json(listProducts)
         } else {
 
-            logger.info("Se pide lista completa de productos" )
+            logger.info("Controller - Se pide lista completa de productos" )
             listProducts = await ProductosService.getProductos()
             // const listProducts = JSON.stringify(await ContenedorDaoProductos.getAll())
             // return res.render('home', {productos: JSON.parse(listProducts), user: "Visita"}) para handlebars
